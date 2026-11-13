@@ -4,13 +4,13 @@ Create App Store screenshot and creative asset designs from real app screenshots
 
 ## Install with the Skills CLI
 
-Once this repository is published on GitHub, run the following in the app project (replace the placeholder with the actual repository URL):
+Run the following in your app project:
 
 ```sh
-npx skills add https://github.com/OWNER/REPOSITORY --skill codoop-app-store-assets
+npx skills add https://github.com/Codoop/codoop-app-pages --skill codoop-app-store-assets
 ```
 
-The CLI prompts for supported agents and installs to the current project by default. Node.js 22.20 or newer is required by the current CLI. Use `-a codex` to select Codex, or `-g` for a user-wide installation. Inspect available skills first with `npx skills add https://github.com/OWNER/REPOSITORY --list`. See the [Skills CLI](https://github.com/vercel-labs/skills) for current agent support and options. The actual GitHub URL must be substituted after publication; this command is not yet a live installation link.
+The CLI prompts for supported agents and installs to the current project by default. Node.js 22.20 or newer is required by the current CLI. Use `-a codex` to select Codex, or `-g` for a user-wide installation. Inspect available skills first with `npx skills add https://github.com/Codoop/codoop-app-pages --list`. See the [Skills CLI](https://github.com/vercel-labs/skills) for current agent support and options.
 
 For local development, `npx skills add /path/to/codoop-app-pages --skill codoop-app-store-assets` installs from this checkout. Public search visibility on skills.sh depends on that service's indexing and is not guaranteed by adding this command.
 
