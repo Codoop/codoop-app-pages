@@ -43,3 +43,7 @@ These paths follow the clients' documentation, including [Qwen Code](https://git
 The agent should verify current Apple specifications, prepare a browser review, and wait for explicit design approval before exporting. Approval does not authorize uploading or publishing.
 
 The template demonstrates review interactions and one illustrative visual direction, not a required layout. The agent first examines the project's brand, interface, assets and user preferences, then designs compositions around that product and each placement. It can replace the example's canvas markup, layouts, palette, typography and device treatments while retaining the review capabilities. Its copy and dimensions are placeholders; Apple placement eligibility and device cropping must be verified for the specific app.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
