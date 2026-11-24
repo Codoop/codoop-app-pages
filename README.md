@@ -1,5 +1,7 @@
 # App Store Assets Skill
 
+[简体中文](README.zh-CN.md)
+
 Create App Store screenshot and creative asset designs from real app screenshots. The skill produces a local HTML review first, iterates on feedback, and exports PNGs only after design approval.
 
 ## From app screenshots to store artwork
