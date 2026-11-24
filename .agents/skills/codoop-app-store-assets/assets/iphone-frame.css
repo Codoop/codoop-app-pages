@@ -1,0 +1,65 @@
+/* iPhone 16 Pro body and display dimensions, with finish and controls
+   referenced from the product photo: https://support.apple.com/en-us/121031
+   Markup: .iphone > .iphone-screen > img. Add .iphone--island only
+   when the source lacks the cutout and its position clears real UI. */
+.iphone {
+  position: absolute;
+  container-type: inline-size;
+  aspect-ratio: 71.5 / 149.6;
+  border-radius: 16% / 7.65%;
+  background: linear-gradient(125deg, #5a5751, #302e2a 45%, #504d46) border-box;
+  box-shadow: 0 .7em 1.7em #17162138;
+}
+
+/* The front view shows only the thin edges of the side controls. */
+.iphone::before,
+.iphone::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: .8%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.iphone::before {
+  right: 100%;
+  background:
+    linear-gradient(#79766f, #363532) 0 17% / 100% 3.3% no-repeat,
+    linear-gradient(#79766f, #363532) 0 24% / 100% 5.8% no-repeat,
+    linear-gradient(#79766f, #363532) 0 32% / 100% 5.8% no-repeat;
+}
+
+.iphone::after {
+  left: 100%;
+  background: linear-gradient(#79766f, #363532) 0 26% / 100% 8.7% no-repeat;
+}
+
+.iphone-screen {
+  position: absolute;
+  inset: 1.61% 3.43%;
+  overflow: hidden;
+  border-radius: 14% / 6.44%;
+  background: #101012;
+  box-shadow: 0 0 0 2.4cqw #111113;
+}
+
+.iphone-screen > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.iphone--island .iphone-screen::after {
+  content: "";
+  position: absolute;
+  top: 1.85%;
+  left: 50%;
+  translate: -50%;
+  width: 29%;
+  height: 3.4%;
+  border-radius: 999px;
+  background: radial-gradient(circle at 88% 50%, #24314a 0, #161b27 4%, transparent 7%), #08080a;
+  pointer-events: none;
+}

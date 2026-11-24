@@ -2,6 +2,34 @@
 
 Create App Store screenshot and creative asset designs from real app screenshots. The skill produces a local HTML review first, iterates on feedback, and exports PNGs only after design approval.
 
+## From app screenshots to store artwork
+
+This example uses **Fieldnotes**, a fictional focus app. The images show the workflow and what the artwork can look like for one product.
+
+| Source screenshot | Portrait artwork |
+| :---: | :---: |
+| <img src="docs/images/app.webp" width="235" alt="Fieldnotes app screen with a focus timer and task list"> | <img src="docs/images/portrait.webp" width="280" alt="Portrait store artwork with a headline and the Fieldnotes screenshot inside an iPhone frame"> |
+
+Provide your app screenshots and any brand assets. The skill plans the artwork around the features visible in your screenshots and places iPhone screenshots inside the [reusable device frame](.agents/skills/codoop-app-store-assets/assets/iphone-frame.html).
+
+The local HTML review shows the artwork together and lets you filter, zoom, and open each canvas at full size. After you approve the design, the skill exports those canvases as PNGs.
+
+![HTML review showing the portrait, Header, and Search Results canvases with filters and zoom controls](docs/images/review.webp)
+
+### Landscape examples
+
+Header and Search Results each support **one to three screenshots**. You can choose which screenshots to use, or let the skill select a set based on what each placement needs to show. These examples use one screenshot per placement to keep the focus timer prominent.
+
+**Product Page Header**
+
+![Wide Fieldnotes header with a large headline and angled iPhone showing the focus timer](docs/images/header.webp)
+
+**Search Results**
+
+![Fieldnotes Search Results artwork with short headline and a large upright iPhone](docs/images/search.webp)
+
+The images above are resized for this README. The skill checks current Apple requirements for the target placement before export.
+
 ## Install with the Skills CLI
 
 Run the following in your app project:
@@ -16,7 +44,7 @@ For local development, `npx skills add /path/to/codoop-app-pages --skill codoop-
 
 ## Install and use
 
-The canonical package is [codoop-app-store-assets](.agents/skills/codoop-app-store-assets/SKILL.md). Copy the **entire** `codoop-app-store-assets` directory, including `assets/review.html`, into the skill directory for your client. The paths below are relative to the root of the project where you want to use it, not this repository. If the destination already exists, review it before replacing it.
+The canonical package is [codoop-app-store-assets](.agents/skills/codoop-app-store-assets/SKILL.md). Copy the **entire** `codoop-app-store-assets` directory, including the HTML templates and shared frame stylesheet in `assets/`, into the skill directory for your client. The paths below are relative to the root of the project where you want to use it, not this repository. If the destination already exists, review it before replacing it.
 
 | Client | Project skill destination | Notes |
 | --- | --- | --- |
