@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>小米应用商店素材评审</title>
+  <link rel="stylesheet" href="xiaomi-frame.css">
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #edf1f0; color: #152523; font: 16px system-ui, sans-serif; }
+    header { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; padding: 20px; }
+    h1 { margin: 0 auto 0 0; font-size: 20px; }
+    main { display: flex; flex-wrap: wrap; align-items: start; gap: 24px; padding: 0 20px 20px; }
+    .artwork { margin: 0; }
+    .viewport {
+      width: calc(var(--width) * var(--zoom) * 1px);
+      height: calc(var(--height) * var(--zoom) * 1px);
+      overflow: hidden;
+    }
+    .canvas {
+      position: relative;
+      overflow: hidden;
+      width: calc(var(--width) * 1px);
+      height: calc(var(--height) * 1px);
+      scale: var(--zoom);
+      transform-origin: top left;
+      background: #16493e;
+      color: white;
+    }
+    .portrait h2 { margin: 100px 84px; font-size: 94px; }
+    .portrait .xiaomi { top: 340px; left: 21%; width: 58%; }
+    .placeholder { display: grid; height: 100%; place-items: center; background: #263e3a; font-size: 36px; }
+    .brand { display: grid; align-content: center; padding: 80px; background: #15352d; }
+    .brand h2 { margin: 0; font-size: 76px; }
+    .brand p { margin: 16px 0 0; font-size: 36px; }
+    figcaption { display: flex; gap: 12px; justify-content: space-between; padding-top: 8px; }
+    .full-size { --zoom: 1 !important; }
+    .full-size header, .full-size figcaption, [hidden] { display: none; }
+    .full-size main { display: block; padding: 0; }
+  </style>
+</head>
+<body style="--zoom: .24">
+  <header>
+    <h1>小米应用商店素材评审</h1>
+    <label>缩放
+      <select id="zoom">
+        <option value=".18">18%</option>
+        <option value=".24" selected>24%</option>
+        <option value=".4">40%</option>
+        <option value="1">100%</option>
+      </select>
+    </label>
+  </header>
+  <main>
+    <!-- Add one figure per actual asset. Match its ID to its full-size link. -->
+    <figure class="artwork" id="screenshot-01" style="--width: 1080; --height: 1920">
+      <div class="viewport">
+        <article class="canvas portrait">
+          <h2>核心功能标题</h2>
+          <div class="xiaomi">
+            <div class="xiaomi-screen">
+              <!-- Replace this placeholder with an img pointing to the real local screenshot. -->
+              <div class="placeholder">Android 截图</div>
+            </div>
+          </div>
+        </article>
+      </div>
+      <figcaption>竖向应用介绍截图 · 1080 × 1920 <a href="?asset=screenshot-01">原尺寸</a></figcaption>
+    </figure>
+    <figure class="artwork" id="brand-display" style="--width: 1080; --height: 480">
+      <div class="viewport">
+        <article class="canvas brand">
+          <h2>应用名称</h2>
+          <p>应用的核心价值</p>
+        </article>
+      </div>
+      <figcaption>应用品牌展示图 · 1080 × 480 <a href="?asset=brand-display">原尺寸</a></figcaption>
+    </figure>
+  </main>
+  <script>
+    const zoom = document.querySelector('#zoom');
+    zoom.addEventListener('change', () => document.body.style.setProperty('--zoom', zoom.value));
+
+    const cards = [...document.querySelectorAll('.artwork')];
+    const selected = new URLSearchParams(location.search).get('asset');
+    if (cards.some(card => card.id === selected)) {
+      document.body.classList.add('full-size');
+      cards.forEach(card => { card.hidden = card.id !== selected; });
+    }
+  </script>
+</body>
+</html>

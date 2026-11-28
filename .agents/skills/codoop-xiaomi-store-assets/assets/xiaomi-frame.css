@@ -1,0 +1,57 @@
+/* Xiaomi 15 front-view approximation. Body and display references:
+   https://www.mi.com/global/product/xiaomi-15/
+   https://www.mi.com/global/product/xiaomi-15/specs/ */
+.xiaomi {
+  position: absolute;
+  container-type: inline-size;
+  aspect-ratio: 71.2 / 152.3;
+  border-radius: 14.5% / 6.8%;
+  background: linear-gradient(140deg, #565b62, #292c31 44%, #434950);
+  box-shadow: 0 .7em 1.7em #10151e44;
+}
+
+.xiaomi::after {
+  content: "";
+  position: absolute;
+  left: 100%;
+  top: 0;
+  width: .9%;
+  height: 100%;
+  background:
+    linear-gradient(#565b62, #343940) 0 22% / 100% 9% no-repeat,
+    linear-gradient(#565b62, #343940) 0 35% / 100% 5% no-repeat;
+  pointer-events: none;
+}
+
+.xiaomi-screen {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  width: 94%;
+  aspect-ratio: 1200 / 2670;
+  overflow: hidden;
+  border-radius: 13% / 5.84%;
+  background: #111318;
+  box-shadow: 0 0 0 1.7cqw #0f1114;
+}
+
+.xiaomi-screen > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.xiaomi--camera .xiaomi-screen::after {
+  content: "";
+  position: absolute;
+  top: 1.25%;
+  left: 50%;
+  translate: -50%;
+  width: 4.2%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle at 42% 40%, #25303f, #0a0b0e 56%);
+  pointer-events: none;
+}

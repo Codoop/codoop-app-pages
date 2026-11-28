@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Xiaomi 15 外壳预览</title>
+  <link rel="stylesheet" href="xiaomi-frame.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 24px;
+      background: #edecea;
+      color: #262523;
+      font: 16px system-ui, sans-serif;
+    }
+    main { display: grid; justify-items: center; gap: 16px; }
+    h1 { margin: 0; font-size: 20px; }
+    .controls { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+    .xiaomi { position: relative; width: min(320px, 82vw, 34vh); }
+    .xiaomi-screen { background: #303949; }
+    .xiaomi-screen > img[hidden] { display: none; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Xiaomi 15 外壳预览</h1>
+    <div class="controls">
+      <label>载入截图 <input id="source" type="file" accept="image/*"></label>
+      <label><input id="camera" type="checkbox"> 显示居中打孔</label>
+    </div>
+    <div class="xiaomi">
+      <div class="xiaomi-screen"><img id="screen" alt="本地截图" hidden></div>
+    </div>
+  </main>
+  <script>
+    const input = document.querySelector('#source');
+    const screen = document.querySelector('#screen');
+    const camera = document.querySelector('#camera');
+    const frame = document.querySelector('.xiaomi');
+    let imageUrl;
+
+    function updateIsland() {
+      frame.classList.toggle('xiaomi--camera', camera.checked);
+    }
+
+    input.addEventListener('change', () => {
+      const file = input.files[0];
+      if (!file) return;
+      if (imageUrl) URL.revokeObjectURL(imageUrl);
+      imageUrl = URL.createObjectURL(file);
+      screen.src = imageUrl;
+      camera.checked = false;
+      updateIsland();
+    });
+    screen.addEventListener('load', () => { screen.hidden = false; });
+    screen.addEventListener('error', () => { screen.hidden = true; });
+    camera.addEventListener('change', updateIsland);
+  </script>
+</body>
+</html>
